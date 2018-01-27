@@ -100,7 +100,7 @@ namespace SteamGuard
 						{
 							action = "generate-code";
 						}
-						else if (args[i] == "accept-all")
+						else if (args[i] == "confirm" || args[i] == "ca" || args[i] == "accept-all")
 						{
 							action = "accept-all";
 						}
@@ -196,7 +196,8 @@ namespace SteamGuard
 				{ "add", "Set up Steam Guard for 2 factor authentication." },
 				{ "setup", "Same as add" },
 				{ "trade", "Opens an interactive prompt to handle trade confirmations." },
-				{ "accept-all", "Accepts all trade confirmations." }
+				{ "accept-all", "Accepts all trade confirmations." },
+				{ "ca", "Same as accept-all." }
 			};
 
 			Console.WriteLine($"steamguard-cli - v{Assembly.GetExecutingAssembly().GetName().Version}");

@@ -1,4 +1,4 @@
-_steamguard()
+_sda()
 {
 	local cur prev opts
 	COMPREPLY=()
@@ -10,4 +10,4 @@ _steamguard()
 	return 0
 }
 
-complete -F _steamguard steamguard
+complete -F _sda sda
