@@ -2,6 +2,7 @@
 using SteamAuth;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -286,10 +287,18 @@ namespace SteamGuard
 					break;
 				}
 			}
-			if (code != "")
+			if (code != "") {
 				Console.WriteLine(code);
-			else
+
+				Process p = Process.Start("/bin/bash", String.Format("-c \"echo -n {0} | xclip -selection clipboard\"", code));
+				p.WaitForExit();
+				p.Close();
+
+				Console.WriteLine("Copied code to clipboard");
+			}
+			else {
 				Console.WriteLine("error: No Steam accounts found in {0}", SteamGuardAccounts);
+			}
 		}
 
 		static bool Encrypt(string passkey = "")
